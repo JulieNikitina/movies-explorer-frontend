@@ -7,3 +7,9 @@
     max-width: 140px ;
   }
 }
+
+@media screen and (max-width: 650px)  {
+  .about__roadmap-block_backend{
+    max-width: 100px ;
+  }
+}

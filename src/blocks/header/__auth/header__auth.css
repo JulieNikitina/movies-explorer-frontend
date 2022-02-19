@@ -7,3 +7,8 @@
     margin-left: 487px;
   }
 }
+@media screen and (max-width: 650px)  {
+  .header__auth {
+    margin-left: 122px;
+  }
+}

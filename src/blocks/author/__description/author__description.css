@@ -14,3 +14,13 @@
     line-height: 18px;
   }
 }
+
+
+@media screen and (max-width: 650px)  {
+  .author__description {
+    font-size: 11px;
+    line-height: 16px;
+    height: 112px;
+  }
+}
+

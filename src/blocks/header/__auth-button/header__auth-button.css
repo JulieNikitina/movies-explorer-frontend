@@ -26,8 +26,10 @@
 @media screen and (max-width: 650px)  {
   .header__auth-button {
     width: 54px;
-    height: 25px;
+    height: 26px;
     font-size: 10px;
     line-height: 16px;
+    margin-right: 14px;
+    margin-left: 14px;
   }
 }

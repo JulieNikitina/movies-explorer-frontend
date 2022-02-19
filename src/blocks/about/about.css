@@ -9,3 +9,9 @@
     max-width: 668px;
   }
 }
+
+@media screen and (max-width: 650px)  {
+  .about {
+    max-width: 284px;
+  }
+}

@@ -16,3 +16,12 @@
     margin-bottom: 81px;
   }
 }
+
+@media screen and (max-width: 650px)  {
+  .techs__text {
+    font-size: 11px;
+    line-height: 16px;
+    max-width: 292px;
+    margin-bottom: 50px;
+  }
+}

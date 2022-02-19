@@ -11,3 +11,9 @@
     max-width: 668px;
   }
 }
+@media screen and (max-width: 650px)  {
+  .author {
+    max-width: 284px;
+  }
+}
+
