@@ -8,9 +8,15 @@
   align-self: center;
 }
 
-@media screen and (max-width: 900px)  {
+@media screen and (max-width: 1024px)  {
   .techs__content {
     padding-top: 83px;
     max-width: 668px;
+  }
+}
+
+@media screen and (max-width: 650px)  {
+  .techs__content {
+    padding-top: 63px;
   }
 }

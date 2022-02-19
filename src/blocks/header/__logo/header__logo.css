@@ -1,20 +1,8 @@
 .header__logo {
   height: 38px;
   align-self: center;
-  margin-left: 70px;
 }
 
-@media screen and (max-width: 900px)  {
-  .header__logo {
-    margin-left: 30px;
-  }
-}
-
-@media screen and (max-width: 650px)  {
-  .header__logo {
-    margin-left: 14px;
-  }
-}
 
 
 

@@ -5,21 +5,18 @@
   letter-spacing: -0.04em;
   margin-top: 100px;
   margin-bottom: 23px;
-  margin-left: 70px;
 }
 
-@media screen and (max-width: 900px)  {
+@media screen and (max-width: 1024px)  {
   .techs__title {
     margin-top: 90px;
-    margin-left: 50px;
   }
 }
 
-
 @media screen and (max-width: 650px)  {
   .techs__title {
-    margin-left: 0;
     font-size: 18px;
     line-height: 22px;
+    margin-top: 50px;
   }
 }

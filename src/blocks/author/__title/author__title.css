@@ -8,16 +8,16 @@
   margin-left: 70px;
 }
 
-@media screen and (max-width: 900px)  {
+@media screen and (max-width: 1024px)  {
   .author__title {
     margin-top: 90px;
     margin-left: 0;
   }
 }
 
-
-@media screen and (max-width: 6500px)  {
+@media screen and (max-width: 650px)  {
   .author__title {
+    margin-top: 135px;
     font-size: 18px;
     line-height: 22px;
   }

@@ -10,18 +10,14 @@
   border: none;
   transition: opacity 0.2s ease-out;
   cursor: pointer;
-  margin: 21px 70px 21px 30px;
+  margin: 21px 0;
   align-self: auto;
 }
 
 .header__auth-button:hover{
   opacity: 0.8;
 }
-@media screen and (max-width: 900px)  {
-  .header__auth-button {
-    margin-right: 30px;
-  }
-}
+
 
 @media screen and (max-width: 650px)  {
   .header__auth-button {
@@ -29,7 +25,5 @@
     height: 26px;
     font-size: 10px;
     line-height: 16px;
-    margin-right: 14px;
-    margin-left: 14px;
   }
 }

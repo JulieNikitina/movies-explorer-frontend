@@ -6,7 +6,7 @@
   margin-bottom: 26px;
 }
 
-@media screen and (max-width: 900px)  {
+@media screen and (max-width: 1024px)  {
   .author__profession {
     font-size: 12px;
     line-height: 18px;

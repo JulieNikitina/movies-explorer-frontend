@@ -10,7 +10,7 @@
   align-self: center;
 }
 
-@media screen and (max-width: 900px)  {
+@media screen and (max-width: 1024px)  {
   .techs__main-title {
     font-size: 50px;
     line-height: 52px;
