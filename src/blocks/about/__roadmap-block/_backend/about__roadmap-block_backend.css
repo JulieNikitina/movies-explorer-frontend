@@ -1,3 +1,9 @@
 .about__roadmap-block_backend {
   max-width: 228px;
 }
+
+@media screen and (max-width: 900px)  {
+  .about__roadmap-block_backend{
+    max-width: 140px ;
+  }
+}

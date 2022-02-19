@@ -7,11 +7,11 @@
   justify-content: end;
 }
 
-/*@media screen and (max-width: 900px)  {*/
-/*  .footer {*/
-/*    padding: 68px 27px;*/
-/*  }*/
-/*}*/
+@media screen and (max-width: 900px)  {
+  .footer {
+    padding: 0 30px;
+  }
+}
 
 /*@media screen and (max-width: 650px)  {*/
 /*  .footer {*/

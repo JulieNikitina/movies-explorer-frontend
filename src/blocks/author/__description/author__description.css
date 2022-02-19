@@ -7,3 +7,10 @@
   margin-block-start: 0;
   margin-block-end: 0;
 }
+
+@media screen and (max-width: 900px)  {
+  .author__description {
+    font-size: 12px;
+    line-height: 18px;
+  }
+}

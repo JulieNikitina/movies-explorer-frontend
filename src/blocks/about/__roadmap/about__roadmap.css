@@ -5,3 +5,10 @@
   font-size: 14px;
   line-height: 17px;
 }
+
+@media screen and (max-width: 900px)  {
+  .about__roadmap{
+    margin-top: 80px;
+    margin-bottom: 90px;
+  }
+}

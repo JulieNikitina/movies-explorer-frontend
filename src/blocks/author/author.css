@@ -3,4 +3,11 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  align-self: center;
+}
+
+@media screen and (max-width: 900px)  {
+  .author {
+    max-width: 668px;
+  }
 }

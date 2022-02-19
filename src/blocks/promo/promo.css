@@ -20,14 +20,8 @@
 @media screen and (max-width: 900px)  {
   .promo {
     min-height: 834px;
-    max-width: 586px;
+    max-width: 728px;
   }
 }
 
-@media screen and (max-width: 650px)  {
-  .promo {
-    min-height: 586px;
-    max-width: 292px;
-  }
-}
 

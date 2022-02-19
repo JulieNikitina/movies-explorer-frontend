@@ -1,4 +1,4 @@
-.section__main-title {
+.techs__main-title {
   font-size: 50px;
   line-height: 58px;
   text-align: center;
@@ -11,10 +11,8 @@
 }
 
 @media screen and (max-width: 900px)  {
-  .section__main-title {
-    font-size: 40px;
+  .techs__main-title {
+    font-size: 50px;
     line-height: 52px;
-    max-width: 680px;
-
   }
 }

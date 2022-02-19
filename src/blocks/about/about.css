@@ -3,3 +3,9 @@
   width: 100%;
   align-self: center;
 }
+
+@media screen and (max-width: 900px)  {
+  .about {
+    max-width: 668px;
+  }
+}

@@ -2,12 +2,6 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
+  align-self: center;
+  margin: 0 auto;
 }
-
-@media screen and (max-width: 650px)  {
-  .header {
-    margin-top: 28px;
-  }
-}
-
-

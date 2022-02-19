@@ -8,3 +8,9 @@
   margin-bottom: 113px;
   align-self: center;
 }
+
+@media screen and (max-width: 900px)  {
+  .portfolio {
+    margin-bottom: 78px;
+  }
+}

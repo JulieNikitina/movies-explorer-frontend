@@ -5,3 +5,9 @@
   margin: 151px auto 30px auto;
   gap: 10px;
 }
+
+@media screen and (max-width: 900px)  {
+  .navtab {
+    margin-top: 314px;
+  }
+}

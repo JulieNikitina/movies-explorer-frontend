@@ -4,3 +4,9 @@
   object-fit: cover;
   border-radius: 10px;
 }
+
+@media screen and (max-width: 900px)  {
+  .author__photo {
+    max-width: 255px;
+  }
+}

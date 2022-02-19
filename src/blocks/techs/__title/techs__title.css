@@ -7,3 +7,10 @@
   margin-bottom: 23px;
   margin-left: 70px;
 }
+
+@media screen and (max-width: 900px)  {
+  .techs__title {
+    margin-top: 90px;
+    margin-left: 50px;
+  }
+}
