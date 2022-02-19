@@ -25,7 +25,7 @@ function AboutProject() {
           <span className="about__roadmap-title"> Back-end </span>
         </div>
         <div className="about__roadmap-block about__roadmap-block_frontend">
-          <div className="about__time about__time_fronted">5 недель</div>
+          <div className="about__time about__time_fronted">4 недели</div>
           <span className="about__roadmap-title"> Front-end </span>
         </div>
       </div>
