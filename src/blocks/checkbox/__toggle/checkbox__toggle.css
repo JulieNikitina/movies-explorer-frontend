@@ -1,0 +1,11 @@
+.checkbox__toggle {
+  position: relative;
+  width: 36px;
+  height: 20px;
+  border-radius: 20px;
+  background-color: #2BE080;
+}
+
+.checkbox__toggle input {
+  opacity: 0;
+}

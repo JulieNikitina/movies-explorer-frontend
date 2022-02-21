@@ -1,0 +1,12 @@
+.search__submit-button {
+  width: 100px;
+  height: 52px;
+  border-radius: 5px;
+  background-color: #000000;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  border: none;
+  margin-right: 10px;
+}
