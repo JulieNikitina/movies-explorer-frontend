@@ -1,17 +1,16 @@
-
-.header__auth {
+.header__links {
   display: flex;
   gap: 50px;
 }
 
 @media screen and (max-width: 1024px) {
-  .header__auth {
+  .header__links {
     gap: 30px;
   }
 }
 
 @media screen and (max-width: 650px) {
-  .header__auth {
+  .header__links {
     gap: 14px
   }
 }
