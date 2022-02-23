@@ -1,8 +1,8 @@
 .movies__more {
-  height: 166px;
+  height: 158px;
   max-width: 1140px;
   width: 100%;
   display: flex;
-  align-items: center;
   align-self: center;
+  justify-content: center;
 }

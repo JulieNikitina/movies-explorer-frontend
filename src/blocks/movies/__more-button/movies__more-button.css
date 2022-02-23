@@ -10,7 +10,7 @@
   transition: opacity 0.2s ease-out;
   cursor: pointer;
   align-self: auto;
-  margin: 61px auto 89px auto;
+  margin-top: 43px;
 }
 
 .movies__more-button:hover{
