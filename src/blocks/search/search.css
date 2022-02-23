@@ -7,3 +7,9 @@
   border-bottom: 1px solid rgb(232, 232, 232);
   max-width: 1140px;
 }
+
+@media screen and (max-width: 1024px)  {
+  .search {
+    max-width: 708px;
+  }
+}

@@ -2,3 +2,9 @@
   width: 270px ;
   margin-bottom: 3px;
 }
+
+@media screen and (max-width: 1024px)  {
+  .movie__photo {
+    width: 339px;
+  }
+}
