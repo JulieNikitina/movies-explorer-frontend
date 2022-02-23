@@ -1,7 +1,7 @@
 import './Header.css';
 
-import logoPath from '../../images/header/logo.png';
-import profileLogoPath from '../../images/header/account.png';
+import logoPath from '../../images/header/logo.svg';
+import profileLogoPath from '../../images/header/account.svg';
 
 import React from "react";
 import {Link} from "react-router-dom";
