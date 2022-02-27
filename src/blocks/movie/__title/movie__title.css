@@ -5,3 +5,10 @@
   max-height: 32px;
 }
 
+@media screen and (max-width: 890px)  {
+  .movie__title {
+    font-size: 12px;
+    line-height: 15px;
+  }
+}
+
