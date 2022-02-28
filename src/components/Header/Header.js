@@ -1,11 +1,11 @@
 import './Header.css';
 
 import logoPath from '../../images/header/logo.svg';
-import profileLogoPath from '../../images/header/account.svg';
 import menuLogoPath from '../../images/header/menu.svg';
 
 import React from "react";
 import {Link} from "react-router-dom";
+import ProfileButton from "../ProfileButton/ProfileButton";
 
 function Header(props) {
 
@@ -19,13 +19,9 @@ function Header(props) {
           <div className="header__links">
             <Link to="/movies" className="header__link"> Фильмы </Link>
             <Link to="/saved-movies" className="header__link"> Сохраненные фильмы </Link>
-            <Link to="/profile" className="header__profile-link">
-              <button className="header__profile-button">
-                <img className="header__profile-logo" src={profileLogoPath}/>
-                <span>Аккаунт</span>
-              </button>
-            </Link>
+            <ProfileButton/>
           </div>
+          {/* тут нужно по клику открывать меню а не навигироваться*/}
           <Link to="/profile" className="header__menu-button">
             <button className="header__menu-button">
               <img className="header__menu-logo" src={menuLogoPath}/>

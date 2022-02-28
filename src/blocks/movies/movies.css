@@ -21,6 +21,7 @@
 @media screen and (max-width: 890px)  {
   .movies {
     grid-template-columns: repeat(2, 1fr);
+    margin-top: 81px;
   }
 }
 

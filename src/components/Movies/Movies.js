@@ -5,6 +5,7 @@ import photoPath from '../../images/author-photo/photo.JPG';
 import Portfolio from "../Portfolio/Portfolio";
 import SearchForm from "../SearchForms/SearchForm";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
+import Navigation from "../Navigation/Navigation";
 
 
 function Movies() {
@@ -12,6 +13,7 @@ function Movies() {
     <>
       <SearchForm/>
       <MoviesCardList/>
+      <Navigation isOpen={true}/>
     </>
   );
 }

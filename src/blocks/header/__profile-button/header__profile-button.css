@@ -1,7 +1,7 @@
 .header__profile-button {
   width: 100px;
   height: 32px;
-  border: 2px solid #AAAAAA;
+  border: 2px solid rgba(170, 170, 170, 0.2);
   border-radius: 50px;
   display: flex;
   align-items: center;
