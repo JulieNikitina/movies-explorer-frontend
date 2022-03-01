@@ -1,0 +1,11 @@
+.profile__link {
+  text-decoration: none;
+  color: #000000;
+  cursor: pointer;
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.profile__link:hover {
+  text-decoration: underline;
+}

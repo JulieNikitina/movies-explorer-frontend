@@ -1,0 +1,10 @@
+.profile__links {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  position: absolute;
+  left: 50%;
+  bottom: 72px;
+  transform: translate(-50%, 0);
+}
