@@ -1,0 +1,18 @@
+.form__container {
+  width: 396px;
+  align-items: center;
+  margin: 70px auto;
+}
+
+@media screen and (max-width: 1024px)  {
+  .form__container {
+    margin: 232px auto;
+  }
+}
+
+@media screen and (max-width: 520px)  {
+  .form__container {
+    margin: 56px auto;
+    width: 260px;
+  }
+}

@@ -11,29 +11,23 @@ import Main from "../Main/Main";
 import Movies from "../Movies/Movies";
 import NotFound from "../NotFound/NotFound";
 import Profile from "../Profile/Profile";
+import Register from "../Register/Register";
 
 
 function App() {
-
-  // const navigate = useNavigate()
-  const [loggedIn, setLoggedIn] = React.useState(true);
-  const [currentUser, setCurrentUser] = React.useState({});
-
   return (
-    <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
         <BrowserRouter>
-          <Header isLoggedIn={loggedIn}/>
           <Routes>
             <Route path="/" element={<Main/>}/>
             <Route path="/movies" element={<Movies/>}/>
             <Route path="/profile" element={<Profile/>}/>
+            <Route path="/sign-up" element={<Register/>}/>
           </Routes>
           {/*<NotFound/>*/}
         </BrowserRouter>
         {/*<Footer/>*/}
       </div>
-    </CurrentUserContext.Provider>
 
   );
 }
