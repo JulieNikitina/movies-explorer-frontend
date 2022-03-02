@@ -6,3 +6,16 @@
   justify-content: flex-start;
   box-sizing: border-box;
 }
+
+
+@media screen and (max-width: 800px)  {
+  .profile {
+    padding-top: 220px;
+  }
+}
+
+@media screen and (max-width: 520px)  {
+  .profile {
+    padding-top: 52px;
+  }
+}

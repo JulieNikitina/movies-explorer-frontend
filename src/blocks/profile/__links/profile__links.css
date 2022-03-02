@@ -3,8 +3,17 @@
   flex-direction: column;
   gap: 16px;
   align-items: center;
-  position: absolute;
-  left: 50%;
-  bottom: 72px;
-  transform: translate(-50%, 0);
+  margin-bottom: 70px;
+}
+
+@media screen and (max-width: 1024px)  {
+  .profile__links {
+    margin-bottom: 269px;
+  }
+}
+
+@media screen and (max-width: 520px)  {
+  .profile__links {
+    margin-bottom: 40px;
+  }
 }
