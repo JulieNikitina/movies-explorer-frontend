@@ -13,6 +13,7 @@ import NotFound from "../NotFound/NotFound";
 import Profile from "../Profile/Profile";
 import Register from "../Register/Register";
 import Login from "../Login/Login";
+import SavedMovies from "../SavedMovies/SavedMovies";
 
 
 function App() {
@@ -22,13 +23,13 @@ function App() {
           <Routes>
             <Route path="/" element={<Main/>}/>
             <Route path="/movies" element={<Movies/>}/>
+            <Route path="/saved-movies" element={<SavedMovies/>}/>
             <Route path="/profile" element={<Profile/>}/>
             <Route path="/sign-up" element={<Register/>}/>
             <Route path="/sign-in" element={<Login/>}/>
+            <Route path="*" element={<NotFound/>}/>
           </Routes>
-          {/*<NotFound/>*/}
         </BrowserRouter>
-        {/*<Footer/>*/}
       </div>
 
   );

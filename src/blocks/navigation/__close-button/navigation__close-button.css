@@ -10,6 +10,7 @@
   position: absolute;
   top: 23px;
   right: 23px;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 320px)  {
