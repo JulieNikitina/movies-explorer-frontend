@@ -31,7 +31,9 @@ function Header(props) {
         :
         <div className="header__creds">
           <Link to="/sign-up" className="header__link"> Регистрация </Link>
-          <button className="header__auth-button"> Войти</button>
+          <Link to="/sign-in">
+            <button className="header__auth-button"> Войти</button>
+          </Link>
         </div>
       }
     </header>

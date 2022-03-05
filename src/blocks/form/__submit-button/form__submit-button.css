@@ -10,7 +10,6 @@
   border: none;
   transition: opacity 0.2s ease-out;
   cursor: pointer;
-  margin-top: 130px;
   margin-bottom: 16px;
 }
 
@@ -24,6 +23,5 @@
     font-size: 12px;
     line-height: 15px;
     margin-bottom: 12px;
-    margin-top: 220px;
   }
 }
