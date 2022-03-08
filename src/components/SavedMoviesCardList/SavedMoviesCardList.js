@@ -1,13 +1,13 @@
 import './SavedMoviesCardList.css';
 import React from "react";
-import MoviesCard from "../MoviesCard/MoviesCard";
+import SavedMoviesCard from "../SavedMoviesCard/SavedMoviesCard";
 
 function SavedMoviesCardList() {
   return (
     <section className="movies">
-      <MoviesCard/>
-      <MoviesCard/>
-      <MoviesCard/>
+      <SavedMoviesCard/>
+      <SavedMoviesCard/>
+      <SavedMoviesCard/>
     </section>
   );
 }

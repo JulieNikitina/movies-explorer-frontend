@@ -1,11 +1,7 @@
-//TODO: проверить по подключению шрифтов, нормалайза и апп.цсс логику
 import '../../index.css';
 
 import './App.css';
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
 import React from "react";
-import {CurrentUserContext} from "../../contexts/CurrentUserContext";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Main from "../Main/Main";
 import Movies from "../Movies/Movies";

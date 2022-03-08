@@ -1,9 +1,6 @@
-import './SearchForm.css';
-// import {Link} from "react-router-dom";
 import React from "react";
-import photoPath from '../../images/author-photo/photo.JPG';
-import Portfolio from "../Portfolio/Portfolio";
 import FilterCheckbox from "../FilterCheckbox/FilterCheckbox";
+import './SearchForm.css';
 
 
 function SearchForm(props) {

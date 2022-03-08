@@ -26,7 +26,7 @@ function Header(props) {
             <ProfileButton/>
           </div>
             <button className="header__menu-button" onClick={onMenuClick}>
-              <img className="header__menu-logo" src={menuLogoPath} />
+              <img className="header__menu-logo" src={menuLogoPath}  alt="Кнопка меню"/>
             </button>
         </>
         :
