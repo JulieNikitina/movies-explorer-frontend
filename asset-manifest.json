@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/movies-explorer-frontend/static/css/main.36da6933.css",
+    "main.js": "/movies-explorer-frontend/static/js/main.75c47c92.js",
+    "static/js/787.5fef94a4.chunk.js": "/movies-explorer-frontend/static/js/787.5fef94a4.chunk.js",
+    "static/media/photo.JPG": "/movies-explorer-frontend/static/media/photo.69de3f361c74b24ca1ac.JPG",
+    "static/media/Inter-Medium.woff2": "/movies-explorer-frontend/static/media/Inter-Medium.293fd13dbca5a3e450ef.woff2",
+    "static/media/Inter-Black.woff2": "/movies-explorer-frontend/static/media/Inter-Black.15ca31c0a2a68f76d2d1.woff2",
+    "static/media/Inter-Regular.woff2": "/movies-explorer-frontend/static/media/Inter-Regular.c8ba52b05a9ef10f4758.woff2",
+    "static/media/movie.png": "/movies-explorer-frontend/static/media/movie.079f75d376c547ca4f87.png",
+    "index.html": "/movies-explorer-frontend/index.html",
+    "static/media/logo.svg": "/movies-explorer-frontend/static/media/logo.ff8d63432b1ab9c95cbcaebadaed42eb.svg",
+    "static/media/account.svg": "/movies-explorer-frontend/static/media/account.7ddf01d28dd819d8f32db7283a007419.svg",
+    "static/media/save-active.svg": "/movies-explorer-frontend/static/media/save-active.21d9cf11dd426e12bfde.svg",
+    "static/media/save.svg": "/movies-explorer-frontend/static/media/save.5757c2cf00d16ed6f27e.svg",
+    "static/media/delete.svg": "/movies-explorer-frontend/static/media/delete.14498d74dcd1d87578fa.svg",
+    "static/media/menu.svg": "/movies-explorer-frontend/static/media/menu.08035af1e508cd8cfed5606a27648836.svg",
+    "static/media/close.svg": "/movies-explorer-frontend/static/media/close.78894569c4f87e08cc51.svg",
+    "main.36da6933.css.map": "/movies-explorer-frontend/static/css/main.36da6933.css.map",
+    "main.75c47c92.js.map": "/movies-explorer-frontend/static/js/main.75c47c92.js.map",
+    "787.5fef94a4.chunk.js.map": "/movies-explorer-frontend/static/js/787.5fef94a4.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.36da6933.css",
+    "static/js/main.75c47c92.js"
+  ]
+}
