@@ -1,33 +1,22 @@
 import './Login.css';
 import React from "react";
 import {Link} from "react-router-dom";
-import logoPath from '../../images/header/logo.svg';
+import FormLogo from "../FormLogo/FormLogo";
+import EmailInput from "../EmailInput/EmailInput";
+import PasswordInput from "../PasswordInput/PasswordInput";
+import NameInput from "../NameInput/NameInput";
 
 
 function Login() {
   return (
     <>
       <div className="form__container">
-        <div className="form__logo-container">
-          <img className="form__logo" src={logoPath} alt="Лого"/>
-        </div>
+        <FormLogo/>
         <h2 className="form__title">Рады видеть!</h2>
         <form className="form" name="login-form" noValidate>
           <div className="form__field-group">
-            <div className="form__field">
-              <label className="form__label">E-mail</label>
-              <input id="email-input" required className="form__input-field" type="email" name="email"
-                     placeholder="email"
-                     minLength="4" maxLength="40"/>
-              <span className="email-input-error form__input-error"/>
-            </div>
-            <div className="form__field">
-              <label className="form__label">Пароль</label>
-              <input id="password-input" required className="form__input-field form__input-field_white" type="password"
-                     name="password"
-                     placeholder="password" minLength="8" maxLength="200"/>
-              <span className="password-input-error form__input-error"/>
-            </div>
+            <EmailInput label={"E-mail"}/>
+            <PasswordInput label={"Пароль"}/>
           </div>
           <div className="form__footer">
             <button className="form__submit-button" type="submit">Войти</button>

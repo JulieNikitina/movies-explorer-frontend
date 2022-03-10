@@ -2,7 +2,7 @@ import '../../index.css';
 
 import './App.css';
 import React from "react";
-import {BrowserRouter, HashRouter, Route, Routes} from "react-router-dom";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Main from "../Main/Main";
 import Movies from "../Movies/Movies";
 import NotFound from "../NotFound/NotFound";
@@ -15,7 +15,7 @@ import SavedMovies from "../SavedMovies/SavedMovies";
 function App() {
   return (
       <div className="page">
-        <HashRouter>
+        <BrowserRouter>
           <Routes>
             <Route path="/" element={<Main/>}/>
             <Route path="/movies" element={<Movies/>}/>
@@ -25,7 +25,7 @@ function App() {
             <Route path="/sign-in" element={<Login/>}/>
             <Route path="*" element={<NotFound/>}/>
           </Routes>
-        </HashRouter>
+        </BrowserRouter>
       </div>
 
   );
