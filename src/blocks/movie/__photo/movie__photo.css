@@ -1,10 +1,11 @@
 .movie__photo {
   width: 270px ;
-  margin-bottom: 5px;
+  margin-bottom: 3px;
 }
 
 @media screen and (max-width: 890px)  {
   .movie__photo {
+    margin-bottom: 5px;
     width: 339px;
   }
 }

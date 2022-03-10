@@ -1,4 +1,3 @@
-import './Movies.css';
 import React from "react";
 import SearchForm from "../SearchForms/SearchForm";
 import Navigation from "../Navigation/Navigation";
