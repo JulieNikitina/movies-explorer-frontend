@@ -1,0 +1,8 @@
+.movie {
+  display: flex;
+  flex-direction: column;
+}
+
+.movie:hover .movie__delete-button {
+  opacity: 1;
+}

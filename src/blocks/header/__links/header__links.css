@@ -1,0 +1,16 @@
+.header__links {
+  display: flex;
+  gap: 50px;
+}
+
+@media screen and (max-width: 1024px) {
+  .header__links {
+    gap: 30px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .header__links {
+    display: none;
+  }
+}
