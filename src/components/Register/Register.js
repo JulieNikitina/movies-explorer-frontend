@@ -28,7 +28,7 @@ function Register() {
   }
 
   function handleSubmit(e) {
-    console.log("")
+    console.log("test")
     e.preventDefault()
     handleRegister(name, email, password)
   }

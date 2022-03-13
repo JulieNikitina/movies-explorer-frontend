@@ -18,6 +18,7 @@ export const register = (name, email, password) => {
     if (!res.ok) {
       return Promise.reject(`Ошибка: ${res.status}`);
     }
+    console.log(res)
     return res.json();
   }).then(body => {
     if (body.error) {

@@ -12,8 +12,10 @@ function Profile(props) {
   React.useEffect(() => {
     auth.checkToken().then((res) => {
       if (res) {
-        setEmail(res.user.email);
-        setName(res.user.name);
+        setCurrentUser({
+          name: res.user.name,
+          email: res.user.email
+        })
       }
     }).catch((error) => {
       console.error(error)}
@@ -45,14 +47,14 @@ function Profile(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    handleUpdateUser(name, email);
+    handleUpdateUser(name || currentUser.name, email || currentUser.email);
   }
   return (
     <>
       <Header isLoggedIn={true}/>
       <section className="profile">
         <div className="profile__content">
-          <h1 className="profile__title">Привет, {name}!</h1>
+          <h1 className="profile__title">Привет, {currentUser.name}!</h1>
           <form className="profile__form" onSubmit={handleSubmit}>
             <div className="profile__form-field">
               <label className="profile__form-label">Имя</label>
