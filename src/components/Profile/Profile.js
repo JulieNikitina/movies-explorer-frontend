@@ -2,25 +2,11 @@ import './Profile.css';
 import React from "react";
 import Header from "../Header/Header";
 import {projectApi} from "../../utils/MainApi";
-import * as auth from "../../utils/auth";
 
 function Profile(props) {
   const { currentUser, setCurrentUser } = props;
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
-
-  React.useEffect(() => {
-    auth.checkToken().then((res) => {
-      if (res) {
-        setCurrentUser({
-          name: res.user.name,
-          email: res.user.email
-        })
-      }
-    }).catch((error) => {
-      console.error(error)}
-    );
-  }, []);
 
   function handleNameChange(e) {
     setName(e.target.value)
@@ -29,6 +15,7 @@ function Profile(props) {
   function handleEmailChange(e) {
     setEmail(e.target.value)
   }
+
   function handleUpdateUser(name, email) {
     projectApi.patchUserInfo(name, email)
       .then((resultUserInfo) => {
@@ -49,6 +36,17 @@ function Profile(props) {
     e.preventDefault();
     handleUpdateUser(name || currentUser.name, email || currentUser.email);
   }
+
+  function handleLogout() {
+    projectApi.signOut()
+      .then(() => {
+        window.location.href = '/sign-in';
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
   return (
     <>
       <Header isLoggedIn={true}/>
@@ -66,7 +64,7 @@ function Profile(props) {
             </div>
             <div className="profile__form-footer">
               <button className="profile__button" type={"submit"}>Редактировать</button>
-              <button className="profile__button profile__button_red" >Выйти из аккаунта</button>
+              <button className="profile__button profile__button_red" onClick={handleLogout}>Выйти из аккаунта</button>
             </div>
           </form>
         </div>
