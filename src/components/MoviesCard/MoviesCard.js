@@ -1,10 +1,11 @@
 
 import './MoviesCard.css';
 import React from "react";
-import moviePhotoPath from '../../images/movie/movie.png';
+import {genMovieImageUrl} from "../../utils/MoviesUtils";
 
 
-function MoviesCard() {
+function MoviesCard(props) {
+  const { movie } = props;
   const [isSaved, setIsIsSaved] = React.useState(false);
   const saveButtonClassName = isSaved ? "movie__save-button movie__save-button_active" : "movie__save-button";
   const onClickHandler = () => {
@@ -12,12 +13,13 @@ function MoviesCard() {
   };
   return (
     <article className="movie">
-      <img className="movie__photo" src={moviePhotoPath} alt="Название фильма"/>
+      <img className="movie__photo" src={genMovieImageUrl(movie.image.url)} alt={movie.nameRU}/>
       <div className="movie__text-block">
-        <h2 className="movie__title">Название</h2>
+        <h2 className="movie__title">{movie.nameRU}</h2>
         <button className={saveButtonClassName} type="button" onClick={onClickHandler}/>
       </div>
-      <span className="movie__time">1ч42м</span>
+      {/*todo: format duration*/}
+      <span className="movie__time">{movie.duration}</span>
     </article>
   );
 }

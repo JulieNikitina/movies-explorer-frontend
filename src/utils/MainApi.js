@@ -1,4 +1,4 @@
-import {AUTORIZATION_PARAMS} from "./utils";
+import {AUTORIZATION_PARAMS} from "./auth";
 
 class Api {
   constructor(params) {

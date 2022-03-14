@@ -1,10 +1,16 @@
-import {API_ENDPOINT} from "./utils";
-
 const noAuthHeaders = {
   'Accept': 'application/json',
   'Content-Type': 'application/json'
 }
 
+export const API_ENDPOINT = 'http://api.diploma.nomoredomains.xyz';
+
+export const AUTORIZATION_PARAMS = {
+  baseRoute: API_ENDPOINT,
+  headers: {
+    'Content-Type': 'application/json'
+  }
+}
 export const register = (name, email, password) => {
   return fetch(`${API_ENDPOINT}/signup`, {
     method: 'POST',

@@ -60,7 +60,7 @@ function App() {
                        </ProtectedRoute>
                      }/>
               <Route path="/sign-up" element={<Register/>}/>
-              <Route path="/sign-in" element={<Login setCurrentUser={setCurrentUser}/>}/>
+              <Route path="/sign-in" element={<Login/>}/>
               <Route path="*" element={<NotFound/>}/>
             </Routes>
           </BrowserRouter>

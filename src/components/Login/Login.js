@@ -1,15 +1,13 @@
 import './Login.css';
 import React from "react";
-import {Link, useNavigate} from "react-router-dom";
+import {Link} from "react-router-dom";
 import FormLogo from "../FormLogo/FormLogo";
 import EmailInput from "../EmailInput/EmailInput";
 import PasswordInput from "../PasswordInput/PasswordInput";
 import * as auth from "../../utils/auth";
 
 
-function Login(props) {
-  const { setCurrentUser } = props;
-  const navigate = useNavigate()
+function Login() {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
 
@@ -32,14 +30,7 @@ function Login(props) {
         if (data?.error) {
           console.log(data.error);
         } else {
-          auth.checkToken((res) => {
-            if (res) {
-              setCurrentUser({ name: res.user.name, email: res.user.email });
-              navigate('/movies');
-            }
-          }).catch((error) => {
-            console.error(error);
-          });
+          window.location.href = '/movies';
         }
       })
       .catch(() => {

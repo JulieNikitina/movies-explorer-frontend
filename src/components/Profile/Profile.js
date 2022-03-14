@@ -40,7 +40,7 @@ function Profile(props) {
   function handleLogout() {
     projectApi.signOut()
       .then(() => {
-        window.location.href = '/sign-in';
+        window.location.href = '/';
       })
       .catch((err) => {
         console.log(err);
