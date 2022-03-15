@@ -11,7 +11,7 @@ import Preloader from "../Preloader/Preloader";
 
 function Movies() {
   const [isLoading, setIsLoading] = React.useState(false);
-  const [searchQuery, setSearchQuery] = React.useState("");
+  const [searchParams, setSearchParams] = React.useState({});
   const [movies, setMovies] = React.useState(null);
   const [isOpen, setIsOpen] = React.useState(false);
 
@@ -23,7 +23,7 @@ function Movies() {
     setIsOpen(false)
   }
 
-  function onSearchSubmit(searchQuery) {
+  function onSearchSubmit(searchParams) {
     if (!movies) {
       setIsLoading(true);
       fetchMovies()
@@ -35,12 +35,12 @@ function Movies() {
         setIsLoading(false);
       });
     }
-    setSearchQuery(searchQuery);
+    setSearchParams(searchParams);
   }
 
-  const displayMovies = filterMovies(searchQuery, movies);
+  console.log('gg', searchParams.searchQuery, searchParams.isShort);
+  const displayMovies = filterMovies(movies, searchParams.searchQuery, searchParams.isShort);
 
-  // todo: прелоадер
   return (
     <>
       <Header currentPage="movies" isLoggedIn={true} onMenuClick={handleOpen}/>
@@ -49,11 +49,11 @@ function Movies() {
         <Preloader/>
       ) : (
         <>
-          {!!searchQuery && !movies && (
+          {!!searchParams.searchQuery && !movies && (
             //todo: markup
             <div>Ничего не найдено</div>
           )}
-          {!!searchQuery && !!movies && (
+          {!!searchParams.searchQuery && !!movies && (
             <MoviesCardList movies={displayMovies}/>
           )}
         </>

@@ -1,7 +1,7 @@
 
 import './MoviesCard.css';
 import React from "react";
-import {genMovieImageUrl} from "../../utils/MoviesUtils";
+import {genMovieImageUrl, timeFormatter} from "../../utils/MoviesUtils";
 
 
 function MoviesCard(props) {
@@ -18,8 +18,7 @@ function MoviesCard(props) {
         <h2 className="movie__title">{movie.nameRU}</h2>
         <button className={saveButtonClassName} type="button" onClick={onClickHandler}/>
       </div>
-      {/*todo: format duration*/}
-      <span className="movie__time">{movie.duration}</span>
+      <span className="movie__time">{timeFormatter(movie.duration)}</span>
     </article>
   );
 }

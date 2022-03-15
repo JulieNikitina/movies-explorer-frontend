@@ -5,6 +5,7 @@ import './SearchForm.css';
 
 function SearchForm(props) {
   const { onSubmit } = props;
+  const [isShort, setIsShort] = React.useState(false);
   const [searchQuery, setSearchQuery] = React.useState("");
 
   function onSearchQueryChange(e) {
@@ -13,7 +14,7 @@ function SearchForm(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    onSubmit(searchQuery);
+    onSubmit({ searchQuery, isShort });
   }
 
   return (
@@ -31,7 +32,7 @@ function SearchForm(props) {
           />
           <button className="search__submit-button" type="submit">Поиск</button>
         </div>
-        <FilterCheckbox/>
+        <FilterCheckbox onChange={setIsShort}/>
       </form>
     </div>
   );
