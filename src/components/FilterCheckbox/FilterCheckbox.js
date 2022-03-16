@@ -5,15 +5,15 @@ function FilterCheckbox(props) {
   const { onChange } = props;
   const [isToggled, setIsToggled] = React.useState(false);
   const indicatorClassName = isToggled ? "checkbox__indicator checkbox__indicator_active" : "checkbox__indicator";
+  const checkboxToggleClassName = isToggled ? "checkbox__toggle checkbox__toggle_active" : "checkbox__toggle";
   const onClickHandler = () => {
     const value = !isToggled;
     setIsToggled(value);
     onChange(value);
   };
-  //todo: добавить смену цвета активный/неактивный тогль
   return (
         <div className="checkbox">
-          <div className="checkbox__toggle" onClick={onClickHandler}>
+          <div className={checkboxToggleClassName} onClick={onClickHandler}>
             <input id="toggle" type="checkbox"/>
             <div className={indicatorClassName}/>
           </div>
