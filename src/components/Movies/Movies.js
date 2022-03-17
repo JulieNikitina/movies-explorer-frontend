@@ -55,7 +55,7 @@ function Movies(props) {
       const savedMovie = savedMovies.find(it => it.movieId === movie.id);
       if (savedMovie) {
         projectApi.removeMovie(savedMovie._id)
-          .then(() => setSavedMovies(removeMovieById(savedMovies, movie.id)))
+          .then(() => setSavedMovies(removeMovieById(savedMovies, 'movieId', movie.id)))
           .catch(err => console.error(err));
       } else {
         console.error('Что-то пошло не так, нет такого фильма');

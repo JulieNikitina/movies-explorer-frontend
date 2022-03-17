@@ -48,8 +48,8 @@ export function timeFormatter(time) {
   return `${hours}ч${minutes}м`
 }
 
-export function removeMovieById(movies, id) {
-  const index = movies.findIndex(it => it.movieId === id);
+export function removeMovieById(movies, key, id) {
+  const index = movies.findIndex(it => it[key] === id);
   if (index === -1) {
     return movies;
   } else {
