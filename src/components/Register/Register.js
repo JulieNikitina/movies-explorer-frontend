@@ -18,8 +18,9 @@ function Register() {
   const errorClass = !!registerError ? 'form__footer-error form__footer-error_active' : 'form__footer-error';
 
   function handleSubmit(e) {
-    e.preventDefault()
-    handleRegister(values.name, values.email, values.password)
+    e.preventDefault();
+    handleRegister(values.name, values.email, values.password);
+    resetForm();
   }
 
   function handleClearErrors() {
