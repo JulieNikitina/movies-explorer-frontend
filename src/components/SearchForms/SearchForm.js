@@ -4,9 +4,9 @@ import './SearchForm.css';
 
 
 function SearchForm(props) {
-  const { onSubmit } = props;
-  const [isShort, setIsShort] = React.useState(false);
-  const [searchQuery, setSearchQuery] = React.useState("");
+  const { defaultSearchQuery, defaultIsShort, onSubmit } = props;
+  const [isShort, setIsShort] = React.useState(defaultIsShort || false);
+  const [searchQuery, setSearchQuery] = React.useState(defaultSearchQuery || "");
   const [isValid, setIsValid] = React.useState(false);
   const buttonClassName = isValid ? "search__submit-button" : "search__submit-button search__submit-button_inactive"
 
@@ -18,7 +18,13 @@ function SearchForm(props) {
   function handleSubmit(e) {
     e.preventDefault();
     onSubmit({ searchQuery, isShort });
-    setSearchQuery("")
+  }
+
+  function handleToggleIsShort(value) {
+    if (searchQuery) {
+      onSubmit({ searchQuery, isShort: value });
+    }
+    setIsShort(value);
   }
 
   return (
@@ -37,7 +43,7 @@ function SearchForm(props) {
           <button className={buttonClassName} type="submit">Поиск</button>
         </div>
         <span className="search__form-error">{isValid ? "" : "Введите ключевое слово"}</span>
-        <FilterCheckbox onChange={setIsShort}/>
+        <FilterCheckbox defaultValue={defaultIsShort} onChange={handleToggleIsShort}/>
       </form>
     </div>
   );

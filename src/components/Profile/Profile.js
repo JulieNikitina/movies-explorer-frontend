@@ -3,6 +3,7 @@ import React from "react";
 import Header from "../Header/Header";
 import {projectApi} from "../../utils/MainApi";
 import {useFormValidation} from "../../validation/FormValidation";
+import {clearCachedSearchState} from "../../utils/localStorage";
 
 function Profile(props) {
   const { currentUser, setCurrentUser, loggedIn } = props;
@@ -50,6 +51,7 @@ function Profile(props) {
     resetForm();
     projectApi.signOut()
       .then(() => {
+        clearCachedSearchState();
         window.location.href = '/';
       })
       .catch((err) => {
