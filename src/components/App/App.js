@@ -19,6 +19,11 @@ function App() {
   const [isInitialized, setIsInitialized] = React.useState(false);
   const [currentUser, setCurrentUser] = React.useState({});
   const isLoggedIn = !!currentUser.email;
+  // errors
+  const [registerError, setRegisterError] = React.useState("");
+  const [foundError, setFoundError] = React.useState(false);
+  const [serverError, setServerError] = React.useState(false);
+  const [profileError, setProfileError] = React.useState("");
 
   React.useEffect(() => {
     auth.checkToken().then((res) => {
@@ -33,6 +38,13 @@ function App() {
       console.error(error);
     });
   }, []);
+
+  function clearAllErrors() {
+    setRegisterError("");
+    setFoundError(false);
+    setServerError(false);
+    setProfileError("");
+  }
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -60,7 +72,7 @@ function App() {
                        </ProtectedRoute>
                      }/>
               <Route path="/sign-up" element={<Register/>}/>
-              <Route path="/sign-in" element={<Login/>}/>
+              <Route path="/sign-in" element={<Login clearErrors={clearAllErrors}/>}/>}/>
               <Route path="*" element={<NotFound/>}/>
             </Routes>
           </BrowserRouter>
