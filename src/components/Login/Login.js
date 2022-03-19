@@ -13,6 +13,7 @@ function Login() {
   const [loginError, setLoginError] = React.useState("");
   const buttonClassName = isValid ? "form__submit-button" : "form__submit-button form__submit-button_inactive"
   const errorClass = !!loginError ? 'form__footer-error form__footer-error_active' : 'form__footer-error';
+
   function handleSubmit(e) {
     e.preventDefault()
     handleLogin(values.email, values.password)
@@ -32,13 +33,15 @@ function Login() {
   function handleLogin(email, password) {
     auth.authorize(email, password)
       .then((data) => {
-        if (data.error) {
+        console.log(data)
+        if (data?.error) {
           setLoginError(data.error);
         } else {
           window.location.href = '/movies';
         }
       })
-      .catch(() => {
+      .catch((err) => {
+        console.log(err)
         setLoginError('Что-то пошло не так, попробуйте еще раз!');
       });
   }
