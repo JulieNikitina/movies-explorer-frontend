@@ -38,7 +38,6 @@ function Register() {
   function handleRegister(name, email, password) {
     auth.register(name, email, password)
       .then(data => {
-        console.log("data", data)
         if (data?.error) {
           setRegisterError(data.error);
         } else if (data.email) {

@@ -34,7 +34,6 @@ function Login() {
   function handleLogin(email, password) {
     auth.authorize(email, password)
       .then((data) => {
-        console.log(data)
         if (data?.error) {
           setLoginError(data.error);
         } else {
