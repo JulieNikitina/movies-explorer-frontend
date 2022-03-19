@@ -1,3 +1,5 @@
+import {getScreenWidth} from "./dom";
+
 export function mergeMovies(movies, savedMovies) {
   if (movies) {
     if (savedMovies) {
@@ -57,4 +59,19 @@ export function removeMovieById(movies, key, id) {
     result.splice(index, 1);
     return result;
   }
+}
+
+export function getInitialCardsCount() {
+  const screenWidth = getScreenWidth();
+  if (screenWidth < 720) return 5;
+  if (screenWidth < 890) return 8;
+  return 12;
+}
+
+export function getMoreCardsCount() {
+  const screenWidth = getScreenWidth();
+  if (screenWidth <= 720) return 1;
+  if (screenWidth <= 890) return 2;
+  if (screenWidth <= 1140) return 3;
+  return 4;
 }
