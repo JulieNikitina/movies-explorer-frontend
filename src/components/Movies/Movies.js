@@ -1,4 +1,5 @@
 import React from "react";
+import './Movies.css'
 import SearchForm from "../SearchForms/SearchForm";
 import Navigation from "../Navigation/Navigation";
 import Header from "../Header/Header";
@@ -78,12 +79,11 @@ function Movies(props) {
         <Preloader/>
       ) : (
         <>
-          {!!searchParams.searchQuery && !movies && (
-            //todo: markup
-            <div>Ничего не найдено</div>
+          {!!searchParams.searchQuery && (!displayMovies || !displayMovies.length) && (
+            <p className="movies__message">По вашему запросу ничего не найдено</p>
           )}
-          {!!searchParams.searchQuery && !!movies && (
-            <MoviesCardList movies={displayMovies} onToggleSave={onToggleSave}/>
+          {!!searchParams.searchQuery && (!!displayMovies && !!displayMovies.length) && (
+            <MoviesCardList currentPage="movies" movies={displayMovies} onToggleSave={onToggleSave}/>
           )}
         </>
       )}

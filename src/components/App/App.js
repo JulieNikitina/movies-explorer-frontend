@@ -43,19 +43,19 @@ function App() {
               <Route path="/" element={<Main loggedIn={isLoggedIn}/>}/>
               <Route path="/movies"
                      element={
-                       <ProtectedRoute redirectTo="/sign-up" loggedIn={isLoggedIn}>
+                       <ProtectedRoute redirectTo="/" loggedIn={isLoggedIn}>
                          <Movies loggedIn={isLoggedIn}/>
                        </ProtectedRoute>
                      }/>
               <Route path="/saved-movies"
                      element={
-                       <ProtectedRoute redirectTo="/sign-up" loggedIn={isLoggedIn}>
+                       <ProtectedRoute redirectTo="/" loggedIn={isLoggedIn}>
                          <SavedMovies loggedIn={isLoggedIn}/>
                        </ProtectedRoute>
                      }/>
               <Route path="/profile"
                      element={
-                       <ProtectedRoute redirectTo="/sign-up" loggedIn={isLoggedIn}>
+                       <ProtectedRoute redirectTo="/" loggedIn={isLoggedIn}>
                          <Profile currentUser={currentUser} setCurrentUser={setCurrentUser} loggedIn={isLoggedIn}/>
                        </ProtectedRoute>
                      }/>

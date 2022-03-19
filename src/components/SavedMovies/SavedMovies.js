@@ -1,4 +1,5 @@
-import React from "react";
+import React from "react"
+import './SavedMovies.css'
 import SearchForm from "../SearchForms/SearchForm";
 import Navigation from "../Navigation/Navigation";
 import Header from "../Header/Header";
@@ -48,12 +49,11 @@ function SavedMovies(props) {
       <SearchForm/>
       {isLoading ? (<Preloader/>) : (
         <>
-          {!savedMovies && (
-            //todo: markup
-            <div>Вы ничего не сохранили</div>
+          {(!savedMovies || !savedMovies.length) && (
+            <p className="movies__message">У вас пока нет сохраненных фильмов</p>
           )}
           {!!savedMovies && (
-            <MoviesCardList movies={savedMovies} onToggleSave={null} onRemove={removeSavedMovie}/>
+            <MoviesCardList currentPage="saved-movies" movies={savedMovies} onToggleSave={null} onRemove={removeSavedMovie}/>
           )}
         </>
       )}
