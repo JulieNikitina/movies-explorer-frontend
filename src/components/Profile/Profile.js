@@ -43,7 +43,7 @@ function Profile(props) {
       .catch((err) => {
         setStatus('error');
         resetStatus();
-        console.log(err);
+        console.error(err);
       });
   }
 
@@ -55,13 +55,12 @@ function Profile(props) {
         window.location.href = '/';
       })
       .catch((err) => {
-        console.log(err);
+        console.error(err);
       });
   }
 
   function isError(error) {
     const errorClass = !!error ? 'form__input-error form__input-error_active' : 'form__input-error';
-    console.log(errorClass)
     return errorClass
   }
 
@@ -86,7 +85,7 @@ function Profile(props) {
               {!status && <button className={buttonClassName} type={"submit"}>Редактировать</button>}
               {status === 'success' && <span className="profile__message">Данные успешно изменены!</span>}
               {status === 'error' && <span className="profile__message">Произошла ошибка, не смогли обновить ваши данные</span>}
-              <button className="profile__button profile__button_red" onClick={handleLogout}>Выйти из аккаунта</button>
+              <button type="button" className="profile__button profile__button_red" onClick={handleLogout}>Выйти из аккаунта</button>
             </div>
           </form>
         </div>
