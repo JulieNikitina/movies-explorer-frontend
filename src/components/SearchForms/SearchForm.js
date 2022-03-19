@@ -4,7 +4,7 @@ import './SearchForm.css';
 
 
 function SearchForm(props) {
-  const { defaultSearchQuery, defaultIsShort, onSubmit } = props;
+  const { defaultSearchQuery, defaultIsShort, onSubmit, allowSubmitWithoutQuery } = props;
   const [isShort, setIsShort] = React.useState(defaultIsShort || false);
   const [searchQuery, setSearchQuery] = React.useState(defaultSearchQuery || "");
   const [isValid, setIsValid] = React.useState(false);
@@ -21,7 +21,7 @@ function SearchForm(props) {
   }
 
   function handleToggleIsShort(value) {
-    if (searchQuery) {
+    if (searchQuery || allowSubmitWithoutQuery) {
       onSubmit({ searchQuery, isShort: value });
     }
     setIsShort(value);
