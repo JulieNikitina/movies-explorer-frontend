@@ -54,6 +54,7 @@ function Movies(props) {
   }
 
   function onToggleSave(movie) {
+    console.debug(movie)
     if (movie.isSaved) {
       const savedMovie = savedMovies.movies?.find(it => it.movieId === movie.id);
       if (savedMovie) {
@@ -72,7 +73,7 @@ function Movies(props) {
     } else {
       projectApi.saveMovie(movie)
         .then((res) => {
-          const updatedSavedMovies = [...(savedMovies.movies || []), res.movie];
+          const updatedSavedMovies = [...(savedMovies?.movies || []), res.movie];
           updateSearchState({
             searchQuery: searchState.searchQuery,
             isShort: searchState.isShort,

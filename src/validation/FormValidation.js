@@ -46,3 +46,8 @@ function validateEmail(target) {
   return null;
 }
 
+export function isSameProfileData(currentUser, values) {
+  return values.name === currentUser.name && values.email === currentUser.email;
+}
+
+

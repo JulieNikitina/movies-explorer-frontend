@@ -6,6 +6,7 @@ import EmailInput from "../EmailInput/EmailInput";
 import PasswordInput from "../PasswordInput/PasswordInput";
 import * as auth from "../../utils/auth";
 import {useFormValidation} from "../../validation/FormValidation";
+import {clearCachedSearchState} from "../../utils/localStorage";
 
 
 function Login() {
@@ -37,6 +38,7 @@ function Login() {
         if (data?.error) {
           setLoginError(data.error);
         } else {
+          clearCachedSearchState();
           window.location.href = '/movies';
         }
       })

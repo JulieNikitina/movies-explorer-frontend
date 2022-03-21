@@ -2,7 +2,7 @@ import './Profile.css';
 import React from "react";
 import Header from "../Header/Header";
 import {projectApi} from "../../utils/MainApi";
-import {useFormValidation} from "../../validation/FormValidation";
+import {isSameProfileData, useFormValidation} from "../../validation/FormValidation";
 import {clearCachedSearchState} from "../../utils/localStorage";
 
 function Profile(props) {
@@ -16,8 +16,12 @@ function Profile(props) {
 
   function handleSubmit(e) {
     e.preventDefault()
-    handleUpdateUser(values.name || currentUser.name, values.email || currentUser.email)
-    resetForm();
+    if (isSameProfileData(currentUser, values)) {
+      setProfileError('Данные не изменились');
+    } else {
+      handleUpdateUser(values.name, values.email)
+      resetForm();
+    }
   }
 
   function handleChangeInput(e) {
@@ -65,6 +69,8 @@ function Profile(props) {
     return !!error ? 'form__input-error form__input-error_active' : 'form__input-error'
   }
 
+  const isSameData = isSameProfileData(currentUser, values);
+
   return (
     <>
       <Header isLoggedIn={loggedIn}/>
@@ -83,7 +89,7 @@ function Profile(props) {
             </div>
             <span className={isError(errors.email)}>{errors.email}</span>
             <div className="profile__form-footer">
-              {!status && <button className="profile__button" type="submit" disabled={!isValid}>Редактировать</button>}
+              {!status && <button className="profile__button" type="submit" disabled={isSameData || !isValid}>Редактировать</button>}
               {status === 'success' && <span className="profile__message">Данные успешно изменены!</span>}
               {status === 'error' && <span className="profile__message">Произошла ошибка, не смогли обновить ваши данные</span>}
               <button type="button" className="profile__button profile__button_red" onClick={handleLogout}>Выйти из аккаунта</button>

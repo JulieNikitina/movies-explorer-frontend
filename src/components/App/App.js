@@ -11,19 +11,15 @@ import Register from "../Register/Register";
 import Login from "../Login/Login";
 import SavedMovies from "../SavedMovies/SavedMovies";
 import {CurrentUserContext} from "../../contexts/CurrentUserContext";
-import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
+import UnauthorizedUserProtectedRoute from "../UnauthorizedUserProtectedRoute/UnauthorizedUserProtectedRoute";
 import * as auth from "../../utils/auth";
+import AuthorizedUserProtectedRoute from "../AuthorizedUserProtectedRoute/AuthorizedUserProtectedRoute";
 
 
 function App() {
   const [isInitialized, setIsInitialized] = React.useState(false);
   const [currentUser, setCurrentUser] = React.useState({});
   const isLoggedIn = !!currentUser.email;
-  // errors
-  const [registerError, setRegisterError] = React.useState("");
-  const [foundError, setFoundError] = React.useState(false);
-  const [serverError, setServerError] = React.useState(false);
-  const [profileError, setProfileError] = React.useState("");
 
   React.useEffect(() => {
     auth.checkToken().then((res) => {
@@ -39,13 +35,6 @@ function App() {
     });
   }, []);
 
-  function clearAllErrors() {
-    setRegisterError("");
-    setFoundError(false);
-    setServerError(false);
-    setProfileError("");
-  }
-
   return (
     <CurrentUserContext.Provider value={currentUser}>
       {isInitialized && (
@@ -55,24 +44,32 @@ function App() {
               <Route path="/" element={<Main loggedIn={isLoggedIn}/>}/>
               <Route path="/movies"
                      element={
-                       <ProtectedRoute redirectTo="/" loggedIn={isLoggedIn}>
+                       <UnauthorizedUserProtectedRoute redirectTo="/" loggedIn={isLoggedIn}>
                          <Movies loggedIn={isLoggedIn}/>
-                       </ProtectedRoute>
+                       </UnauthorizedUserProtectedRoute>
                      }/>
               <Route path="/saved-movies"
                      element={
-                       <ProtectedRoute redirectTo="/" loggedIn={isLoggedIn}>
+                       <UnauthorizedUserProtectedRoute redirectTo="/" loggedIn={isLoggedIn}>
                          <SavedMovies loggedIn={isLoggedIn}/>
-                       </ProtectedRoute>
+                       </UnauthorizedUserProtectedRoute>
                      }/>
               <Route path="/profile"
                      element={
-                       <ProtectedRoute redirectTo="/" loggedIn={isLoggedIn}>
+                       <UnauthorizedUserProtectedRoute redirectTo="/" loggedIn={isLoggedIn}>
                          <Profile currentUser={currentUser} setCurrentUser={setCurrentUser} loggedIn={isLoggedIn}/>
-                       </ProtectedRoute>
+                       </UnauthorizedUserProtectedRoute>
                      }/>
-              <Route path="/sign-up" element={<Register/>}/>
-              <Route path="/sign-in" element={<Login clearErrors={clearAllErrors}/>}/>}/>
+              <Route path="/sign-up"
+                     element={
+                       <AuthorizedUserProtectedRoute redirectTo="/" loggedIn={isLoggedIn}>
+                         <Register/>
+                       </AuthorizedUserProtectedRoute>}/>
+              <Route path="/sign-in"
+                     element={
+                       <AuthorizedUserProtectedRoute redirectTo="/" loggedIn={isLoggedIn}>
+                         <Login/>
+                       </AuthorizedUserProtectedRoute>}/>
               <Route path="*" element={<NotFound/>}/>
             </Routes>
           </BrowserRouter>
