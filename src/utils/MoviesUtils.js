@@ -51,7 +51,7 @@ export function timeFormatter(time) {
 }
 
 export function removeMovieById(movies, key, id) {
-  const index = movies?.findIndex(it => it[key] === id) || -1;
+  const index = movies?.findIndex(it => it[key] === id) ?? -1;
   if (index === -1) {
     return movies;
   } else {

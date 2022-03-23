@@ -14,9 +14,12 @@ import {CurrentUserContext} from "../../contexts/CurrentUserContext";
 import UnauthorizedUserProtectedRoute from "../UnauthorizedUserProtectedRoute/UnauthorizedUserProtectedRoute";
 import * as auth from "../../utils/auth";
 import AuthorizedUserProtectedRoute from "../AuthorizedUserProtectedRoute/AuthorizedUserProtectedRoute";
+import {AppContext, reducerWithLocalStorage} from "../../contexts/AppContext";
+import {getCachedSearchState} from "../../utils/localStorage";
 
 
 function App() {
+  const [state, dispatch] = React.useReducer(reducerWithLocalStorage, getCachedSearchState());
   const [isInitialized, setIsInitialized] = React.useState(false);
   const [currentUser, setCurrentUser] = React.useState({});
   const isLoggedIn = !!currentUser.email;
@@ -36,47 +39,48 @@ function App() {
   }, []);
 
   return (
-    <CurrentUserContext.Provider value={currentUser}>
-      {isInitialized && (
-        <div className="page">
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Main loggedIn={isLoggedIn}/>}/>
-              <Route path="/movies"
-                     element={
-                       <UnauthorizedUserProtectedRoute redirectTo="/" loggedIn={isLoggedIn}>
-                         <Movies loggedIn={isLoggedIn}/>
-                       </UnauthorizedUserProtectedRoute>
-                     }/>
-              <Route path="/saved-movies"
-                     element={
-                       <UnauthorizedUserProtectedRoute redirectTo="/" loggedIn={isLoggedIn}>
-                         <SavedMovies loggedIn={isLoggedIn}/>
-                       </UnauthorizedUserProtectedRoute>
-                     }/>
-              <Route path="/profile"
-                     element={
-                       <UnauthorizedUserProtectedRoute redirectTo="/" loggedIn={isLoggedIn}>
-                         <Profile currentUser={currentUser} setCurrentUser={setCurrentUser} loggedIn={isLoggedIn}/>
-                       </UnauthorizedUserProtectedRoute>
-                     }/>
-              <Route path="/sign-up"
-                     element={
-                       <AuthorizedUserProtectedRoute redirectTo="/" loggedIn={isLoggedIn}>
-                         <Register/>
-                       </AuthorizedUserProtectedRoute>}/>
-              <Route path="/sign-in"
-                     element={
-                       <AuthorizedUserProtectedRoute redirectTo="/" loggedIn={isLoggedIn}>
-                         <Login/>
-                       </AuthorizedUserProtectedRoute>}/>
-              <Route path="*" element={<NotFound/>}/>
-            </Routes>
-          </BrowserRouter>
-        </div>
-      )}
-    </CurrentUserContext.Provider>
-
+    <AppContext.Provider value={{state, dispatch}}>
+      <CurrentUserContext.Provider value={currentUser}>
+        {isInitialized && (
+          <div className="page">
+            <BrowserRouter>
+              <Routes>
+                <Route path="/" element={<Main loggedIn={isLoggedIn}/>}/>
+                <Route path="/movies"
+                       element={
+                         <UnauthorizedUserProtectedRoute redirectTo="/" loggedIn={isLoggedIn}>
+                           <Movies loggedIn={isLoggedIn}/>
+                         </UnauthorizedUserProtectedRoute>
+                       }/>
+                <Route path="/saved-movies"
+                       element={
+                         <UnauthorizedUserProtectedRoute redirectTo="/" loggedIn={isLoggedIn}>
+                           <SavedMovies loggedIn={isLoggedIn}/>
+                         </UnauthorizedUserProtectedRoute>
+                       }/>
+                <Route path="/profile"
+                       element={
+                         <UnauthorizedUserProtectedRoute redirectTo="/" loggedIn={isLoggedIn}>
+                           <Profile currentUser={currentUser} setCurrentUser={setCurrentUser} loggedIn={isLoggedIn}/>
+                         </UnauthorizedUserProtectedRoute>
+                       }/>
+                <Route path="/sign-up"
+                       element={
+                         <AuthorizedUserProtectedRoute redirectTo="/" loggedIn={isLoggedIn}>
+                           <Register/>
+                         </AuthorizedUserProtectedRoute>}/>
+                <Route path="/sign-in"
+                       element={
+                         <AuthorizedUserProtectedRoute redirectTo="/" loggedIn={isLoggedIn}>
+                           <Login/>
+                         </AuthorizedUserProtectedRoute>}/>
+                <Route path="*" element={<NotFound/>}/>
+              </Routes>
+            </BrowserRouter>
+          </div>
+        )}
+      </CurrentUserContext.Provider>
+    </AppContext.Provider>
   );
 }
 

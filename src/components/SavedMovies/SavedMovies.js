@@ -5,32 +5,28 @@ import Navigation from "../Navigation/Navigation";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import {projectApi} from "../../utils/MainApi";
-import {filterMovies, removeMovieById} from "../../utils/MoviesUtils";
+import {filterMovies} from "../../utils/MoviesUtils";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import Preloader from "../Preloader/Preloader";
-import {fetchMovies} from "../../utils/MoviesApi";
-import {getCachedSearchState, setCachedSearchState} from "../../utils/localStorage";
-
+import {useAppContext} from "../../contexts/AppContext";
 
 function SavedMovies(props) {
+  const { state: { isLoading, savedMovies }, dispatch } = useAppContext();
   const {loggedIn} = props;
   const [isOpen, setIsOpen] = React.useState(false);
   const [searchParams, setSearchParams] = React.useState(null);
-  const [savedMovies, setSavedMovies] = React.useState(null);
-  const [isLoading, setIsLoading] = React.useState(false);
 
   React.useEffect(() => {
-    setIsLoading(true);
+    dispatch({ type: 'setIsLoading', payload: { isLoading: true }});
     projectApi.fetchSavedMovies()
       .then((res) => {
-        setSavedMovies(res.movies?.map(it => ({...it, isSaved: true})) || []);
-        setIsLoading(false);
+        dispatch({ type: 'savedMoviesLoaded', payload: { savedMovies: res }});
       })
       .catch((err) => {
         console.error(err)
-        setIsLoading(false);
+        dispatch({ type: 'setIsLoading', payload: { isLoading: false }});
       })
-  }, []);
+  }, [dispatch]);
 
   function handleOpen() {
     setIsOpen(true)
@@ -42,23 +38,14 @@ function SavedMovies(props) {
 
   function removeSavedMovie(movie) {
     projectApi.removeMovie(movie._id)
-      .then(() => {
-        const state = getCachedSearchState();
-        if (state) {
-          const targetMovie = state.displayMovies.find(it => it.id === movie.movieId);
-          if(targetMovie) {
-            targetMovie.isSaved = false;
-          }
-          setCachedSearchState(state);
-        }
-        setSavedMovies(removeMovieById(savedMovies, '_id', movie._id));
-      })
+      .then(() => dispatch({ type: 'unSaveMovie', payload: { movieId: movie.movieId }}))
       .catch(err => console.error(err));
   }
 
-  const filteredMovies = savedMovies
-    ? searchParams ? filterMovies(savedMovies, searchParams.searchQuery, searchParams.isShort) : savedMovies
-    : null;
+  const mergedMovies = savedMovies?.movies?.map(it => ({...it, isSaved: true})) || [];
+  const filteredMovies = searchParams
+    ? filterMovies(mergedMovies, searchParams.searchQuery, searchParams.isShort)
+    : mergedMovies;
 
   return (
     <>
@@ -66,14 +53,14 @@ function SavedMovies(props) {
       <SearchForm onSubmit={setSearchParams} allowSubmitWithoutQuery={true}/>
       {isLoading ? (<Preloader/>) : (
         <>
-          {(!savedMovies || !savedMovies.length) && (
+          {(!mergedMovies || !mergedMovies.length) && (
             <p className="movies__message">У вас пока нет сохраненных фильмов</p>
           )}
           {(!!filteredMovies && !!filteredMovies.length) && (
             <MoviesCardList currentPage="saved-movies" movies={filteredMovies} onToggleSave={null}
                             onRemove={removeSavedMovie}/>
           )}
-          {(savedMovies && (!filteredMovies || !filteredMovies.length)) && (
+          {(mergedMovies && (!filteredMovies || !filteredMovies.length)) && (
             <p className="movies__message">Ничего не найдено</p>
           )}
         </>
