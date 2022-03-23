@@ -56,7 +56,7 @@ function Movies(props) {
   function onToggleSave(movie) {
     console.debug(movie)
     if (movie.isSaved) {
-      const savedMovie = savedMovies.movies?.find(it => it.movieId === movie.id);
+      const savedMovie = savedMovies?.movies?.find(it => it.movieId === movie.id);
       if (savedMovie) {
         projectApi.removeMovie(savedMovie._id)
           .then(() => {

@@ -9,6 +9,7 @@ import {filterMovies, removeMovieById} from "../../utils/MoviesUtils";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import Preloader from "../Preloader/Preloader";
 import {fetchMovies} from "../../utils/MoviesApi";
+import {getCachedSearchState, setCachedSearchState} from "../../utils/localStorage";
 
 
 function SavedMovies(props) {
@@ -41,7 +42,17 @@ function SavedMovies(props) {
 
   function removeSavedMovie(movie) {
     projectApi.removeMovie(movie._id)
-      .then(() => setSavedMovies(removeMovieById(savedMovies, '_id', movie._id)))
+      .then(() => {
+        const state = getCachedSearchState();
+        if (state) {
+          const targetMovie = state.displayMovies.find(it => it.id === movie.movieId);
+          if(targetMovie) {
+            targetMovie.isSaved = false;
+          }
+          setCachedSearchState(state);
+        }
+        setSavedMovies(removeMovieById(savedMovies, '_id', movie._id));
+      })
       .catch(err => console.error(err));
   }
 
@@ -59,7 +70,8 @@ function SavedMovies(props) {
             <p className="movies__message">У вас пока нет сохраненных фильмов</p>
           )}
           {(!!filteredMovies && !!filteredMovies.length) && (
-            <MoviesCardList currentPage="saved-movies" movies={filteredMovies} onToggleSave={null} onRemove={removeSavedMovie}/>
+            <MoviesCardList currentPage="saved-movies" movies={filteredMovies} onToggleSave={null}
+                            onRemove={removeSavedMovie}/>
           )}
           {(savedMovies && (!filteredMovies || !filteredMovies.length)) && (
             <p className="movies__message">Ничего не найдено</p>

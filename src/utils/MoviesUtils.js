@@ -5,7 +5,7 @@ export function mergeMovies(movies, savedMovies) {
     if (savedMovies) {
       return movies.map(it => {
         const isSaved = savedMovies.find(savedMovie => savedMovie.movieId === it.id);
-        return { ...it, isSaved: isSaved };
+        return { ...it, isSaved: !!isSaved };
       });
     }
     return movies;
